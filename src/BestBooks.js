@@ -1,15 +1,27 @@
 import React from 'react';
+import './BestBooks.css'
+import axios from 'axios';
+import { withAuth0 } from '@auth0/auth0-react';
 
 class BestBooks extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      books: []
-    }
-  }
+ componentDidMount = () => {
+   if(this.props.auth0.isAuthen) {
+     this.props.auth0.getIdTokenClaims()
+     .then(res => {
+       const jwt = res.__raw; const config = {
+         headers: {"Authorization" : `Bearer ${jwt}`},
+         method: 'get',
+         baseURL: "http:localhost:3000/",
+         url: '/test'
+       }
+       axios(config).then(axiosResults => console.log(axiosResults.data)).catch(err => console.error(err))
+     })
+     .catch(err => console.error(err));
+   }
+ }
 
   /* TODO: Make a GET request to your API to fetch books for the logged in user  */
-    
+
   render() {
 
     /* TODO: render user's books in a Carousel */
@@ -28,4 +40,4 @@ class BestBooks extends React.Component {
   }
 }
 
-export default BestBooks;
+export default withAuth0(BestBooks);
