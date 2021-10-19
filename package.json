@@ -8,6 +8,9 @@
     "@testing-library/user-event": "12.8.0",
     "axios": "0.21.1",
     "bootstrap": "4.6.0",
+    "express": "^4.17.1",
+    "express-openid-connect": "^2.5.1",
+    "node": "^16.11.1",
     "react": "^17.0.1",
     "react-bootstrap": "1.5.1",
     "react-cookie": "4.0.3",
@@ -18,7 +21,7 @@
     "web-vitals": "1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
