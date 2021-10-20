@@ -14,7 +14,8 @@ class BestBooks extends React.Component {
          baseURL: "http:localhost:3000/",
          url: '/test'
        }
-       axios(config).then(axiosResults => console.log(axiosResults.data)).catch(err => console.error(err))
+       axios(config).then(axiosResults => console.log(axiosResults.data)).catch
+       (err => console.error(err))
      })
      .catch(err => console.error(err));
    }
