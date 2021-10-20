@@ -2,6 +2,8 @@ import React from 'react';
 import { Navbar, NavItem } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import './Header.css';
+import LogoutButton from './LogoutButton';
+import { withAuth0} from '@auth0/auth0-react';
 
 class Header extends React.Component {
   render() {
@@ -12,6 +14,7 @@ class Header extends React.Component {
         {/* TODO: if the user is logged in, render a navigation link to profile page */}
         
         {/* TODO: if the user is logged in, render the `LogoutButton` */}
+        <LogoutButton />
       </Navbar>
     )
   }
